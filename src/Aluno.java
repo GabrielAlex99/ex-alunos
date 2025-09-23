@@ -66,7 +66,7 @@ public class Aluno {
     }
 
     public void exibirDados() {
-        System.out.print("Aluno: " + nome + " | Idade: " + idade + " | Notas: ");
+        System.out.print("Aluno: " + nome + " | Idade: " + idade + " | Escola: " + escola + " | Notas: ");
         for (double n : nota) {
             System.out.print(n + " ");
         }
