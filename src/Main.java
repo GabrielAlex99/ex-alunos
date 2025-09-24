@@ -6,16 +6,28 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\nDigite a quantidade de alunos para cadastro:");
-        int qtdAluno = scanner.nextInt();
+        int qtdAlunos;
+        do {
+            System.out.println("\nDigite a quantidade de alunos para cadastro:");
+            qtdAlunos = scanner.nextInt();
+            if (qtdAlunos <= 0) {
+                System.out.println("\nA quantidade de alunos deve ser maior que zero.");
+            }
+        } while (qtdAlunos <= 0);
 
-        System.out.println("\nDigite a quantidade de provas por aluno:");
-        int qtdNotas = scanner.nextInt();
+        int qtdNotas;
+        do {
+            System.out.println("\nDigite a quantidade de provas por aluno:");
+            qtdNotas = scanner.nextInt();
+            if (qtdNotas < 0) {
+                System.out.println("\nA quantidade de provas não pode ser negativa.");
+            }
+        } while (qtdNotas < 0);
         scanner.nextLine();
 
-        Aluno[] alunos = new Aluno[qtdAluno];
+        Aluno[] listaDeAlunos = new Aluno[qtdAlunos];
 
-        for (int i = 0; i < qtdAluno; i++) {
+        for (int i = 0; i < qtdAlunos; i++) {
             System.out.println("\n--- Cadastro do Aluno " + (i + 1) + " ---");
 
             System.out.print("Nome: ");
@@ -31,7 +43,7 @@ public class Main {
             System.out.print("Matéria: ");
             String materia = scanner.nextLine();
 
-            alunos[i] = new Aluno(nome, idade, escola, materia, qtdNotas);
+            listaDeAlunos[i] = new Aluno(nome, idade, escola, materia, qtdNotas);
 
             for (int j = 0; j < qtdNotas; j++) {
                 double nota;
@@ -44,13 +56,13 @@ public class Main {
                     }
                 } while (nota < 0 || nota > 10);
 
-                alunos[i].setNota(j, nota);
+                listaDeAlunos[i].setNota(j, nota);
             }
             scanner.nextLine();
         }
 
         System.out.println("\n--- Resultado Final ---");
-        for (Aluno aluno : alunos) {
+        for (Aluno aluno : listaDeAlunos) {
             aluno.exibirDados();
             System.out.println();
             System.out.println();

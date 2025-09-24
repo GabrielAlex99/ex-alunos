@@ -2,14 +2,14 @@ public class Aluno {
     private String nome;
     private String escola;
     private String materia;
-    private final double[] nota;
+    private final double[] notas;
     private int idade;
 
     public Aluno(String nome, int idade, String escola, String materia, int qtdNotas) {
         this.nome = nome;
         this.escola = escola;
         this.materia = materia;
-        this.nota = new double[qtdNotas];
+        this.notas = new double[qtdNotas];
         this.idade = idade;
     }
 
@@ -37,15 +37,15 @@ public class Aluno {
         this.materia = materia;
     }
 
-    public double[] getNota() {
-        return nota;
+    public double[] getNotas() {
+        return notas;
     }
 
     public void setNota(int posicao, double nota) {
         if (nota < 0 || nota > 10) {
             System.out.println("Nota inválida! Digite uma nota entre 0 e 10.");
         } else {
-            this.nota[posicao] = nota;
+            this.notas[posicao] = nota;
         }
     }
 
@@ -58,11 +58,15 @@ public class Aluno {
     }
 
     public double calcularMedia() {
+        if (notas.length == 0) {
+            return 0;
+        }
+
         double soma = 0;
-        for (double n : nota) {
+        for (double n : notas) {
             soma += n;
         }
-        return soma / nota.length;
+        return soma / notas.length;
     }
 
     public void exibirDados() {
@@ -71,9 +75,9 @@ public class Aluno {
                 + " | Escola: " + escola
                 + " | Matéria: " + materia
                 + " | Notas: ");
-        for (int i = 0; i < nota.length; i++) {
-            System.out.print(nota[i]);
-            if (i < nota.length - 1) {
+        for (int i = 0; i < notas.length; i++) {
+            System.out.print(notas[i]);
+            if (i < notas.length - 1) {
                 System.out.print(", ");
             }
         }
