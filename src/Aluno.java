@@ -49,6 +49,14 @@ public class Aluno {
         }
     }
 
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
     public double calcularMedia() {
         double soma = 0;
         for (double n : nota) {
