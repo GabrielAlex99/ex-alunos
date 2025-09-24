@@ -9,7 +9,7 @@ public class Main {
         System.out.println("\nDigite a quantidade de alunos para cadastro:");
         int qtdAluno = scanner.nextInt();
 
-        System.out.println("\nDigite a quantidade de notas por aluno:");
+        System.out.println("\nDigite a quantidade de provas por aluno:");
         int qtdNotas = scanner.nextInt();
         scanner.nextLine();
 
@@ -36,11 +36,11 @@ public class Main {
             for (int j = 0; j < qtdNotas; j++) {
                 double nota;
                 do {
-                    System.out.print("Digite a nota " + (j + 1) + ": ");
+                    System.out.print("Digite a nota da prova " + (j + 1) + ": ");
                     nota = scanner.nextDouble();
 
                     if (nota < 0 || nota > 10) {
-                        System.out.println("Nota inválida! Digite uma nota entre 0 e 10.");
+                        System.out.println("\nNota inválida! Digite uma nota entre 0 e 10.");
                     }
                 } while (nota < 0 || nota > 10);
 

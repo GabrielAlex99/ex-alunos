@@ -49,14 +49,6 @@ public class Aluno {
         }
     }
 
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
     public double calcularMedia() {
         double soma = 0;
         for (double n : nota) {
@@ -66,11 +58,18 @@ public class Aluno {
     }
 
     public void exibirDados() {
-        System.out.print("Aluno: " + nome + " | Idade: " + idade + " | Escola: " + escola + " | Notas: ");
-        for (double n : nota) {
-            System.out.print(n + " ");
+        System.out.print("Aluno: " + nome
+                + " | Idade: " + idade + " anos"
+                + " | Escola: " + escola
+                + " | Matéria: " + materia
+                + " | Notas: ");
+        for (int i = 0; i < nota.length; i++) {
+            System.out.print(nota[i]);
+            if (i < nota.length - 1) {
+                System.out.print(", ");
+            }
         }
-        System.out.print(" | Média: " + calcularMedia());
+        System.out.print(" | Média: " + String.format("%.1f", calcularMedia()));
     }
 
 }
